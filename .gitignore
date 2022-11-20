@@ -1,3 +1,11 @@
 # Gitignore
 
+#Local Settings
 /config/settings.py
+
+#Local Test Data
+/data/
+!/data/README.md
+
+#VS Code Workspace Files
+*.code-workspace
