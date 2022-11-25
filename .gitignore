@@ -2,6 +2,7 @@
 
 #Local Settings
 /config/settings.py
+*/__pycache__/*
 
 #Local Test Data
 /data/
