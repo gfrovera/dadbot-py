@@ -9,9 +9,9 @@ logging.basicConfig(
     filemode='w')
 
 from config.settings import DADBOT_TOKEN
-from src.discord_main import ExampleBot
+from src.dadbot import DadBot
 
 if __name__ == '__main__':
-    ExampleBot(DADBOT_TOKEN).run_example_bot()
+    DadBot(DADBOT_TOKEN).run_dadbot()
 else:
     raise SystemExit()
