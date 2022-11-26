@@ -9,8 +9,8 @@ class DadBot():
         self.token = token
         self.description = '''Dadbot is a discord bot, that will reply with a randomly selected dad joke.
                                Built for fun, built for personal development/learning.'''
-        self.intents = discord.Intents.default()
-        self.intents.message_content = True
+        self.intents = discord.Intents.all()
+
 
         self.dadbot = commands.Bot(description=self.description,
                                     intents=self.intents,
