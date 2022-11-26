@@ -1,9 +1,5 @@
 import discord
 from discord.ext import commands
-from config.settings import DADBOT_TOKEN
-
-
-# client = discord.Client(intents=intents)
 
 class ExampleBot():
 
