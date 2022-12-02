@@ -8,10 +8,9 @@ logging.basicConfig(
     encoding='utf-8',
     filemode='w')
 
-from config.settings import DADBOT_TOKEN
-from src.dadbot import DadBot
+from test import run_bot
 
 if __name__ == '__main__':
-    DadBot(DADBOT_TOKEN).run_dadbot()
+    run_bot()
 else:
     raise SystemExit()
