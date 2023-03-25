@@ -1,32 +1,26 @@
-import logging
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s %(levelname)-8s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-    filename='./data/ExampleBot.log',
-    encoding='utf-8',
-    filemode='w')
-
 import discord
+from discord import app_commands
 from discord.ext import commands
-from test import MyBot
+from dadbot import DadBot
 
 
 class Greetings(commands.Cog):
     
-    def __init__(self, bot: MyBot) -> None:
-        self.bot: MyBot = bot
+    def __init__(self, bot: DadBot) -> None:
+        self.bot: DadBot = bot
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        logging.info('Bot has logged in and cog is loaded')
+    # @commands.Cog.listener()
+    # async def on_ready(self):
+    #     logging.info('Bot has logged in and cog is loaded')
         
-
+    @app_commands.command(name='hello')
+    async def hello(self, interaction: discord.Interaction):
+        await interaction. response.send_message(f'Hey {interaction.user.mention}! Nice to see you online',
+                                                 ephemeral=True)
 
     @commands.command()
     async def bye(self, ctx):
         await ctx.send('later dude')
 
-async def setup(bot: MyBot) -> None:
+async def setup(bot: DadBot) -> None:
     await bot.add_cog(Greetings(bot))
