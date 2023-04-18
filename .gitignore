@@ -2,7 +2,8 @@
 
 #Local Settings
 /config/settings.py
-*/__pycache__/*
+__pycache__
+/cogs/__pycache__/*
 
 #Local Test Data
 /data/
@@ -10,3 +11,8 @@
 
 #VS Code Workspace Files
 *.code-workspace
+*.vscode
+
+#tests
+/tests
+__pycache__/test.cpython-310.pyc
