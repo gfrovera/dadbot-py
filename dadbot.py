@@ -6,6 +6,8 @@ from discord.ext.commands import ExtensionNotFound
 from discord.ext.commands import ExtensionFailed
 from discord.ext.commands import NoEntryPointError
 
+import yaml
+
 import logging
 logging.basicConfig(
     level=logging.DEBUG,
@@ -19,7 +21,11 @@ logging.basicConfig(
     ]
 )
 
-from config.settings import DADBOT_TOKEN
+with open('./config/config.yaml', 'r') as f:
+    config = yaml.safe_load(f)
+
+# from config.settings import DADBOT_TOKEN
+
 
 description = 'DadBot Slasher Command Testing'
 intents = discord.Intents.default()
@@ -55,7 +61,8 @@ class DadBot(commands.Bot):
     async def start(self, debug: bool = True) -> None:
         self.debug = debug
         await self.load_cogs()
-        return await super().start(token=DADBOT_TOKEN)
+        # return await super().start(token=DADBOT_TOKEN)
+        return await super().start(token=config['auth']['token'])
 
 
 def run_bot() -> None:
