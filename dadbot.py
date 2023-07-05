@@ -72,39 +72,3 @@ def run_bot() -> None:
 
 if __name__=='__main__':
     exit()
-
-
-
-
-# bot = commands.Bot(
-#     command_prefix='!',
-#     intents=intents,
-#     description=description,
-#     help_command=None
-# )
-
-# @bot.event
-# async def on_ready():
-#     print('DadBot reporting for duty!')
-#     try:
-#         synced = await bot.tree.sync()
-#         print(f'DadBot is synced up {len(synced)}')
-#     except Exception as e:
-#         print(e)
-
-# @bot.command()
-# async def help(context):
-#     await context.send('Customer Help Commands Goes Here')
-
-# @bot.tree.command(name='hello')
-# async def hello(interaction: discord.Interaction):
-#     await interaction.response.send_message(f'Hey {interaction.user.mention}! Nice to see you online',
-#                                             ephemeral=True)
-
-# @bot.tree.command(name='say')
-# @app_commands.describe(arg='What should I say?')
-# async def say(interaction: discord.Interaction, arg: str):
-#     await interaction.response.send_message(f'{interaction.user.name} said `{arg}`')
-
-
-# bot.run(DADBOT_TOKEN)
