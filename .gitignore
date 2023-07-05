@@ -2,6 +2,7 @@
 
 #Local Settings
 /config/settings.py
+/config/config.yaml
 __pycache__
 /cogs/__pycache__/*
 
