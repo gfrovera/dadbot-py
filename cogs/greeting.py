@@ -3,6 +3,19 @@ from discord import app_commands
 from discord.ext import commands
 from dadbot import DadBot
 
+import datetime as dt
+
+def datetime_category() -> str:
+    '''func to check what par tof the day it is'''
+
+    now = dt.datetime.now()
+
+    if now.time() < dt.time(12):
+        return 'morning'
+    elif now.time() > dt.time(17):
+        return 'evening'
+    else:
+        return 'day'
 
 class Greetings(commands.Cog):
     
@@ -15,12 +28,18 @@ class Greetings(commands.Cog):
         
     @app_commands.command(name='hello')
     async def hello(self, interaction: discord.Interaction):
-        await interaction. response.send_message(f'Hey {interaction.user.mention}! Nice to see you online',
-                                                 ephemeral=True)
+        await interaction.response.send_message(
+            f'Hey {interaction.user.mention}! Nice to see you online',
+            ephemeral=True
+            )
 
-    @commands.command()
-    async def bye(self, ctx):
-        await ctx.send('later dude')
+    @app_commands.command(name='bye')
+    async def bye(self, interaction: discord.Interaction):
+        await interaction.response.send_message(
+            f'Later {interaction.user.mention}. Have a good {datetime_category()}!',
+            ephemeral=True
+            )
 
 async def setup(bot: DadBot) -> None:
-    await bot.add_cog(Greetings(bot))
+    await bot.add_cog(Greetings(bot)) 
+    
